@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const nav = [
   { label: "Início", href: "#inicio" },
@@ -43,15 +44,19 @@ export function Header() {
             <Phone className="h-3.5 w-3.5 text-gold" />
             (47) 99999-0000
           </a>
+          <ThemeToggle />
         </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden text-primary-foreground"
-          aria-label="Menu"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-primary-foreground"
+            aria-label="Menu"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
